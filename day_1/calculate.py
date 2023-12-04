@@ -2,13 +2,14 @@
 def get_total():
     list_of_numbers = []
     numbers_as_letters = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    letter_replacements = ["o1e", "t2o", "t3e", "f4r", "f5e", "s6x", "s7n", "e8t", "n9e"]
     with open("input.txt", "r") as f:
         for line in f.readlines():
             numbers_in_current_line = []
             print(f"original line: {line}")
             for index, num in enumerate(numbers_as_letters):
                 if num in line:
-                    line = line.replace(num, str(index+1))
+                    line = line.replace(num, letter_replacements[index])
             print(f"modified line: {line}")
 
             for char in line:
